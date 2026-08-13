@@ -1,0 +1,29 @@
+# Use official PHP image with Apache
+FROM php:7.4-apache
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Enable mod_rewrite for Apache
+RUN a2enmod rewrite
+
+# Set Apache to allow .htaccess overrides
+RUN sed -i 's/<Directory \/var\/www\/html>/<Directory \/var\/www\/html>\n    AllowOverride All/' /etc/apache2/apache2.conf
+
+# Copy application files to container
+COPY . /var/www/html/
+
+# Create data directory for JSON storage
+RUN mkdir -p /var/www/html/data && \
+    chmod 777 /var/www/html/data
+
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html && \
+    chmod 777 /var/www/html/data
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache in foreground
+CMD ["apache2-foreground"]
