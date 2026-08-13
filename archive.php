@@ -170,6 +170,7 @@ http://astitwamchall1.uni6ctf.online/feed/
 https://astitwamchall1.uni6ctf.online/feed/rss
 https://astitwamchall1.uni6ctf.online/feed/atom
 https://astitwamchall1.uni6ctf.online/rss.xml
+https://astitwamchall1.uni6ctf.online/feed/rss
 http://astitwamchall1.uni6ctf.online/atom.xml</pre>
         </div>
 
